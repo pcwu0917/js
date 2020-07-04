@@ -1,5 +1,5 @@
 function Car(){
-    const color = this.color;
+    this.color="";
 
     this.setColor=function (color) {
         this.color=color;
@@ -8,7 +8,23 @@ function Car(){
         return this.color;
     }
 }
-
-var car=new Car();
+const car = new Car();
 car.setColor("red");
-console.log(car.getColor());
+console.log("car color:"+car.getColor());
+
+//------使用prototype来实现继承
+function BMW(){
+    this.brand="";
+
+    this.setBrand=function(brand){
+        this.brand=brand;
+    }
+    this.getBrand=function(){
+        return this.brand;
+    }
+}
+BMW.prototype=new Car();
+
+const bmw=new BMW();
+bmw.setColor("white")
+console.log(bmw.getColor())
